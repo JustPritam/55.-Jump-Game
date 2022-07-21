@@ -1,6 +1,6 @@
 class Solution {
     public boolean canJump(int[] nums) {
-        int max = 0;
+        /*int max = 0;
         for (int i = 0; i < nums.length; i ++) {
             if (i > max) {
                 return false;
@@ -13,4 +13,16 @@ class Solution {
 
 //it means there is no way to jump to current index, so in this case, we should return false early.
 
-// Otherwise, if we could make it to the end, it means it’s possible to reach the end of the array. Then we should return true.
+// Otherwise, if we could make it to the end, it means it’s possible to reach the end of the array. Then we should return true.*/
+        
+        int lastPos = nums.length-1;
+        for( int i = nums.length - 2; i >= 0; i-- ){
+            if( i + nums[i] >= lastPos )
+                lastPos = i;
+        }
+    return lastPos == 0;
+    }
+}
+
+// Start from last and check whether we can reach the 1st element
+// https://www.youtube.com/watch?v=Yan0cv2cLy8
